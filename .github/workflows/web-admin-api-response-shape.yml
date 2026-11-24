@@ -1,6 +1,7 @@
 name: Web Admin API Response Shape
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - 'web-admin/app/**'
