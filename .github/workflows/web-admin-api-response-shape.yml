@@ -1,3 +1,8 @@
+# Optimized by ci-cost (https://github.com/mariotavarez/ci-cost)
+# Applied 1 optimization:
+# - [MEDIUM] Add concurrency group to "web-admin-api-response-shape.yml"
+# Estimated savings: ~2 min/run
+#
 name: Web Admin API Response Shape
 
 on:
@@ -17,6 +22,10 @@ on:
       - 'web-admin/package.json'
       - '.github/workflows/web-admin-api-response-shape.yml'
 
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   response-shape-check:
     runs-on: ubuntu-latest
